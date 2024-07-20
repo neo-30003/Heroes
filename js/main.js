@@ -1,7 +1,6 @@
 const dropDownBlock = document.querySelector(".header-content .dropdown");
 
 const renderMoviesList = (movie) => {
-  //выбор фильма
   movie.forEach((item) => {
     dropDownBlock.insertAdjacentHTML(
       "beforeend",
@@ -60,7 +59,6 @@ dropDownBlock.addEventListener("change", (e) => {
 fetch("./../dbHeroes.json")
   .then((res) => res.json())
   .then((data) => {
-    //коллекция фильмов
     const movies = new Set();
     data.forEach((item) => {
       movies.add(item.movies);
@@ -70,8 +68,6 @@ fetch("./../dbHeroes.json")
     movie = [...new Set(movie)];
     let valueToRemove = undefined;
     movie = movie.filter((item) => item !== valueToRemove);
-    //    console.log(movies);
-    //  console.log(movie);
 
     renderMoviesList(movie);
   });
